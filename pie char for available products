@@ -1,0 +1,18 @@
+# Load required library
+library(ggplot2)
+
+# Create data
+product_id <- c(1, 2, 3, 4, 5)
+product_name <- c("Product A", "Product B", "Product C", "Product D", "Product E")
+quantity_available <- c(250, 175, 300, 200, 220)
+
+# Create dataframe
+product_data <- data.frame(Product_ID = product_id,
+                           Product_Name = product_name,
+                           Quantity_Available = quantity_available)
+
+# Plot pie chart
+ggplot(product_data, aes(x = "", y = Quantity_Available, fill = Product_Name)) +
+  geom_bar(stat = "identity") +
+  coord_polar(theta = "y") +
+  labs(title = "Quantity Available by Product")
