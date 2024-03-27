@@ -1,0 +1,10 @@
+import matplotlib.pyplot as plt
+
+categories = ['Rent', 'Groceries', 'Utilities', 'Entertainment']
+expenses = [30, 25, 20, 25]
+
+plt.figure(figsize=(8, 8))
+plt.pie(expenses, labels=categories, autopct='%1.1f%%', startangle=140)
+plt.title('Household Expenses Distribution')
+plt.axis('equal')  
+plt.show()
