@@ -1,0 +1,14 @@
+library(ggplot2)
+product_id <- c(1, 2, 3, 4, 5)
+product_name <- c("Product A", "Product B", "Product C", "Product D", "Product E")
+quantity_available <- c(250, 175, 300, 200, 220)
+
+product_data <- data.frame(Product_ID = product_id,
+                           Product_Name = product_name,
+                           Quantity_Available = quantity_available)
+
+ggplot(product_data, aes(x = Quantity_Available)) +
+  geom_histogram(binwidth = 25, fill = "skyblue", color = "black", alpha = 0.7) +
+  labs(title = "Distribution of Quantity Available for Products",
+       x = "Quantity Available",
+       y = "Frequency")
