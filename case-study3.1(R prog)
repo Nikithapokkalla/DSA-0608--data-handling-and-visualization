@@ -1,0 +1,13 @@
+library(ggplot2)
+
+categories <- c('Rent', 'Groceries', 'Utilities', 'Entertainment')
+expenses <- c(30, 25, 20, 25)
+
+df <- data.frame(categories, expenses)
+
+ggplot(df, aes(x = "", y = expenses, fill = categories)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar("y", start = 0) +
+  labs(title = "Household Expenses Distribution") +
+  theme_void() +
+  theme(legend.position = "right")
