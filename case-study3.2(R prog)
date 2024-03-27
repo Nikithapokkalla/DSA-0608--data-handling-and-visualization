@@ -1,0 +1,12 @@
+library(ggplot2)
+
+hours_studied <- c(3, 5, 7, 2, 8, 6, 4, 9)
+exam_scores <- c(65, 80, 85, 60, 90, 75, 70, 95)
+
+df <- data.frame(hours_studied, exam_scores)
+
+ggplot(df, aes(x = hours_studied, y = exam_scores)) +
+  geom_point(color = "blue", alpha = 0.5) +
+  labs(title = "Relationship between Hours Studied and Exam Scores",
+       x = "Hours Studied", y = "Exam Scores") +
+  theme_minimal()
