@@ -1,0 +1,20 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = {'Region': ['North', 'North', 'South', 'South', 'East', 'East', 'West', 'West'],
+        'Product Category': ['Electronics', 'Clothing', 'Electronics', 'Clothing', 'Home Goods', 'Home Goods', 'Electronics', 'Clothing'],
+        'Customer Segment': ['Retail', 'Wholesale', 'Retail', 'Wholesale', 'Retail', 'Wholesale', 'Retail', 'Wholesale'],
+        'Sales': [10000, 8000, 12000, 6000, 9000, 7000, 11000, 5000]}
+
+df = pd.DataFrame(data)
+
+plt.figure(figsize=(10, 6))
+mosaic_df = df.groupby(['Region', 'Product Category', 'Customer Segment']).size().unstack(fill_value=0)
+mosaic_df.T.plot(kind='bar', stacked=True, ax=plt.gca())
+plt.title('Product Sales Analysis')
+plt.xlabel('Product Category')
+plt.ylabel('Sales')
+plt.legend(title='Region', bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
