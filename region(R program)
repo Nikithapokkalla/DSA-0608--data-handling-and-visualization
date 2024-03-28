@@ -1,0 +1,15 @@
+library(ggplot2)
+data <- data.frame(
+  Region = c('North', 'North', 'South', 'South', 'East', 'East', 'West', 'West'),
+  Product_Category = c('Electronics', 'Clothing', 'Electronics', 'Clothing', 'Home_Goods', 'Home_Goods', 'Electronics', 'Clothing'),
+  Customer_Segment = c('Retail', 'Wholesale', 'Retail', 'Wholesale', 'Retail', 'Wholesale', 'Retail', 'Wholesale'),
+  Sales = c(10000, 8000, 12000, 6000, 9000, 7000, 11000, 5000)
+)
+ggplot(data, aes(x = Product_Category, fill = Region)) +
+  geom_bar() +
+  facet_wrap(~Customer_Segment) +
+  labs(title = "Product Sales Analysis",
+       x = "Product Category",
+       y = "Sales") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
